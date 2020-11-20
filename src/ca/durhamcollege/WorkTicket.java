@@ -15,7 +15,6 @@ public class WorkTicket
     String issueDescription;
 
     //PUBLIC PROPERTIES (MUTATORS AND ACCESSORS)
-
     public LocalDate getWorkTicketDate() {
         return workTicketDate;
     }
@@ -44,8 +43,6 @@ public class WorkTicket
         this.clientID = clientID;
     }
 
-
-
     public String getIssueDescription()
     {
         return issueDescription;
@@ -56,9 +53,8 @@ public class WorkTicket
         this.issueDescription = issueDescription;
     }
 
-
-
     //CONSTRUCTORS
+
     //default constructor
     WorkTicket()
     {
@@ -76,6 +72,7 @@ public class WorkTicket
     //PUBLIC METHODS
     public boolean setWorkTicket( int ticketNumber,  String clientID,  LocalDate workTicketDate,  String issueDescription)
     {
+        //checks if the description, client ID and date are not empty and sets the inputs while returning true
         if (issueDescription.isEmpty() == false && clientID.isEmpty()==false && workTicketDate != null)
         {
             setTicketNumber(ticketNumber);
@@ -90,6 +87,7 @@ public class WorkTicket
             return false;
         }
     }
+
     @Override
     public String toString()
     {

@@ -38,14 +38,16 @@ public class Main
         for (int i =0; i < NUMBER_OF_OBJECTS; i++)
         {
             System.out.println("\nWork Ticket #" + (i+1));
+            System.out.println("----------------------------------------------------");
             while (isValid==false)
             {
                 try
                 {
-                    System.out.println();
+
                     System.out.print("Enter the work ticket number: ");
                     ticketNumber= keyboard.nextInt();
-                    if (ticketNumber <=0)
+                    //check if ticket number is less than or equal to 0 and throw an exception
+                    if (ticketNumber < MIN_TICKET_NUMBER)
                     {
                         throw new IllegalArgumentException("Ticket Number must be a whole positive number greater than 0");
                     }
@@ -55,8 +57,11 @@ public class Main
                     clientID = keyboard.nextLine();
 
                     System.out.print("Enter the date (dd/mm/yyyy): ");
-                    date=  keyboard.nextLine();
+                    date = keyboard.nextLine();
+
+                    //parse the string date into a LocalDate
                     workTicketDate = LocalDate.parse(date, dateFormat);
+                    //check if the entered year is less than 2000 or greater than 2099 and throw and exception
                     if (workTicketDate.getYear() < MIN_YEARS || workTicketDate.getYear() > MAX_YEARS)
                     {
                         throw new IllegalArgumentException(  "Year: " + workTicketDate.getYear()+ " is out of bounds. Year must be between 2000 and 2099");
@@ -64,32 +69,35 @@ public class Main
 
                     System.out.print("Enter the description of the issue: ");
                     issueDescription = keyboard.nextLine();
+                    //set the input into a WorkTicket object
                     workticketObj[i]= new WorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
-                    isValid= workticketObj[i].setWorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
 
+                    //check if the inputs are valid in setWorkTicket and set the flag true or false
+                    isValid= workticketObj[i].setWorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
 
                 }
                 catch(Exception e)
                 {
                     System.out.println("Error: " + e);
+                    System.out.println("----------------------------------------------------");
                     keyboard.nextLine();
                     isValid=false;
                 }
 
             }
+            //reset error flag to false
             isValid=false;
         }
 
         //OUTPUT SECTION
+        //loop through the array of objects
         for(int j =0; j < NUMBER_OF_OBJECTS; j++)
         {
+            //print out the work tickets using the overrided toString method
             System.out.println("\n Work Ticket #" + (j+1));
             System.out.println(workticketObj[j].toString());
 
         }
-
-
-
 
     }
 }
