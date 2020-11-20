@@ -94,7 +94,7 @@ public class Main
         for(int j =0; j < NUMBER_OF_OBJECTS; j++)
         {
             //print out the work tickets using the overrided toString method
-            System.out.println("\n Work Ticket #" + (j+1));
+            System.out.println("\nWork Ticket #" + (j+1));
             System.out.println(workticketObj[j].toString());
 
         }

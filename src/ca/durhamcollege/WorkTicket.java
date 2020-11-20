@@ -91,7 +91,7 @@ public class WorkTicket
     @Override
     public String toString()
     {
-        return "Ticket Number:\t\t" + getTicketNumber() + "\nClient ID:\t\t" + getClientID()
+        return "Ticket Number:\t\t" + getTicketNumber() + "\nClient ID:\t\t\t" + getClientID()
                 + "\nWork Ticket Date:\t"+ getWorkTicketDate()
                 + "\nIssue Description:\t" + getIssueDescription() + ".";
     }
