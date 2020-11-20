@@ -107,7 +107,12 @@ public class WorkTicket
         {
             return false;
         }
-
-
+    }
+    @Override
+    public String toString()
+    {
+        return "Ticket Number:\t\t" + getTicketNumber() + "\nClient ID:\t\t" + getClientID()
+                + "\nWork Ticket Date:\t" + getWorkTicketDay() + "/" + getWorkTicketMonth() + "/" + getWorkTicketYear()
+                + "\nIssue Description:\t" + getIssueDescription() + ".";
     }
 }
