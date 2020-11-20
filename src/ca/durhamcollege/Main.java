@@ -42,26 +42,28 @@ public class Main
             {
                 try
                 {
-                    System.out.print("\nEnter the work ticket number: ");
+                    System.out.println();
+                    System.out.print("Enter the work ticket number: ");
                     ticketNumber= keyboard.nextInt();
                     if (ticketNumber <=0)
                     {
                         throw new IllegalArgumentException("Ticket Number must be a whole positive number greater than 0");
                     }
+                    keyboard.nextLine();
 
                     System.out.print("Enter the Client ID: ");
-                    clientID = keyboard.next();
+                    clientID = keyboard.nextLine();
 
-                    System.out.print("Enter the date (dd/mm/yyy): ");
-                    date= keyboard.next();
+                    System.out.print("Enter the date (dd/mm/yyyy): ");
+                    date=  keyboard.nextLine();
                     workTicketDate = LocalDate.parse(date, dateFormat);
-                    if (workTicketDate.getYear() < 2000 || workTicketDate.getYear() > 2099)
+                    if (workTicketDate.getYear() < MIN_YEARS || workTicketDate.getYear() > MAX_YEARS)
                     {
                         throw new IllegalArgumentException(  "Year: " + workTicketDate.getYear()+ " is out of bounds. Year must be between 2000 and 2099");
                     }
 
                     System.out.print("Enter the description of the issue: ");
-                    issueDescription = keyboard.next();
+                    issueDescription = keyboard.nextLine();
                     workticketObj[i]= new WorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
                     isValid= workticketObj[i].setWorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
 
@@ -81,24 +83,13 @@ public class Main
         //OUTPUT SECTION
         for(int j =0; j < NUMBER_OF_OBJECTS; j++)
         {
+            System.out.println("\n Work Ticket #" + (j+1));
+            System.out.println(workticketObj[j].toString());
 
         }
 
 
 
-       /* System.out.println("Enter a date: ");
-        String date = keyboard.nextLine();
 
-        myObj = LocalDate.parse(date, dateFormat);
-        if (myObj.getYear() > 2099)
-        {
-            System.out.println("Invaliud");
-        }
-        System.out.println(myObj);
-        System.out.println(myObj.getYear());*/
-       /*
-        WorkTicket ticket = new WorkTicket();
-        System.out.println(ticket.toString());
-       */
     }
 }
