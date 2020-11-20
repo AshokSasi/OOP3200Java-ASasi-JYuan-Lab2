@@ -62,7 +62,8 @@ public class Main
 
                     System.out.print("Enter the description of the issue: ");
                     issueDescription = keyboard.next();
-                    isValid=true;
+                    workticketObj[i]= new WorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
+                    isValid= workticketObj[i].setWorkTicket(ticketNumber,clientID,workTicketDate,issueDescription);
 
 
                 }
@@ -75,6 +76,12 @@ public class Main
 
             }
             isValid=false;
+        }
+
+        //OUTPUT SECTION
+        for(int j =0; j < NUMBER_OF_OBJECTS; j++)
+        {
+
         }
 
 

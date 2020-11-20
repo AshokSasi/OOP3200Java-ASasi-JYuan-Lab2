@@ -63,7 +63,7 @@ public class WorkTicket
     }
 
     //parameterized constructor
-    WorkTicket(final int ticketNumber, final String clientID, final int workTicketDay, final LocalDate workTicketDate)
+    WorkTicket(final int ticketNumber, final String clientID,  final LocalDate workTicketDate, final String issueDescription)
     {
 
     }
@@ -80,6 +80,7 @@ public class WorkTicket
         }
         else
         {
+
             return false;
         }
     }
