@@ -78,11 +78,11 @@ public class WorkTicket
     WorkTicket()
     {
         this.ticketNumber=0;
-        this.clientID="";
+        this.clientID=null;
         this.workTicketDay=1;
         this.workTicketMonth=1;
         this.workTicketYear=2000;
-        this.issueDescription="";
+        this.issueDescription=null;
     }
 
     //parameterized constructor
@@ -91,5 +91,23 @@ public class WorkTicket
 
     }
     //PUBLIC METHODS
+    public boolean setWorkTicket( int ticketNumber,  String clientID,  int workTicketDay,  int workTicketMonth,  int workTicketYear,  String issueDescription)
+    {
+        if (issueDescription.isEmpty() == false && clientID.isEmpty()==false)
+        {
+            setTicketNumber(ticketNumber);
+            setClientID(clientID);
+            setWorkTicketDay(workTicketDay);
+            setWorkTicketMonth(workTicketMonth);
+            setWorkTicketYear(workTicketYear);
+            setIssueDescription(issueDescription);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
+
+    }
 }
