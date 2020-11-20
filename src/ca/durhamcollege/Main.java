@@ -6,12 +6,30 @@ Changes: N/A
  */
 package ca.durhamcollege;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
 public class Main
 {
 
     public static void main(String[] args)
     {
-        WorkTicket ticket = new WorkTicket();
-        System.out.println(ticket.toString());
+        Scanner keyboard = new Scanner(System.in);
+        LocalDate myObj;
+
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("Enter a date: ");
+        String date = keyboard.nextLine();
+
+        myObj = LocalDate.parse(date, dateFormat);
+        if (myObj.getYear() > 2099)
+        {
+            System.out.println("Invaliud");
+        }
+        System.out.println(myObj);
+        System.out.println(myObj.getYear());
+       // WorkTicket ticket = new WorkTicket();
+       // System.out.println(ticket.toString());
     }
 }
