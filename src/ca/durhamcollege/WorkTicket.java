@@ -70,7 +70,7 @@ public class WorkTicket
     //PUBLIC METHODS
     public boolean setWorkTicket( int ticketNumber,  String clientID,  LocalDate workTicketDate,  String issueDescription)
     {
-        if (issueDescription.isEmpty() == false && clientID.isEmpty()==false)
+        if (issueDescription.isEmpty() == false && clientID.isEmpty()==false && workTicketDate != null)
         {
             setTicketNumber(ticketNumber);
             setClientID(clientID);
